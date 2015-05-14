@@ -52,8 +52,10 @@ import pwd, grp
 ##############################################################
 #    Here's where we override shipped defaults with settings #
 #    suitable for the RPM package.                           #
-MAILMAN_UID = pwd.getpwnam('mailman')[2]
-MAILMAN_GID = grp.getgrnam('mailman')[2]
+
+# Hardcode for use as a libary, since the mailman user might not exist
+MAILMAN_UID = 100 # pwd.getpwnam('mailman')[2]
+MAILMAN_GID = 100 # grp.getgrnam('mailman')[2]
 
 ##############################################################
 #    Set URL and email domain names                          #
